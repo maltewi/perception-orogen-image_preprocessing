@@ -4,7 +4,7 @@
 #define IMAGE_PREPROCESSING_BASETASK_TASK_HPP
 
 #include <stddef.h>
-#include <cv.h>
+#include <opencv2/core.hpp>
 #include "image_preprocessing/BaseTaskBase.hpp"
 #include "frame_helper/FrameHelper.h"
 

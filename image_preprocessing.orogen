@@ -2,7 +2,7 @@ name "image_preprocessing"
 version "0.1"
 
 using_library "base-types"
-using_library "opencv"
+using_library "opencv4"
 import_types_from "base"
 using_task_library "transformer"
 
@@ -17,7 +17,7 @@ task_context "BaseTask" do
        doc "output frame mode"
 
    property("resize_algorithm","/frame_helper/ResizeAlgorithm",:BAYER_RESIZE)
- 
+
    property("scale_x", "double", 0.5).
        doc "scale factor for the x direction"
 
@@ -38,7 +38,7 @@ task_context "DepthImage2Pointcloud" do
     input_port "frame", ro_ptr("/base/samples/DistanceImage")
     output_port "pointcloud", "/base/samples/Pointcloud"
 
-    port_driven 
+    port_driven
 
     stream_aligner do
         max_latency 0.1
@@ -65,7 +65,7 @@ task_context "HSVSegmentationAndBlur" do
 
     input_port "frame", ro_ptr("/base/samples/frame/Frame")
     output_port "oframe", ro_ptr("/base/samples/frame/Frame")
-    
+
     output_port "binary_result", ro_ptr("/base/samples/frame/Frame")
 
     output_port "hDebug", ro_ptr("/base/samples/frame/Frame")
@@ -87,10 +87,10 @@ task_context "HSVSegmentationAndBlur" do
 
     property("minVadapt","int",110)
         .doc("minumum adaptation for V value")
-    
+
     property("maxVadapt","int",140)
         .doc("minumum adaptation for V value")
-    
+
     property("target_pixel_s","int",100)
     property("steps_per_frame","int",1)
     port_driven "frame"
